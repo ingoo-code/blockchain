@@ -228,4 +228,5 @@ module.exports = {
     getVersion,
     mineBlock,
     createHash,
+    replaceBlock,
 }
