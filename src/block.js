@@ -37,9 +37,9 @@ function getLastBlock() {
 function createGenesisBlock(){
     // 1. header 만들기 
     // 5개의 인자값을 만들어야되여.
-    const version = getVersion() // 1.0.0
+    const version = "1.0.0" // 1.0.0
     const index = 0
-    const time = getCurrentTime() 
+    const time = 1630907567 // 하드코딩 
     const previousHash = '0'.repeat(64)
     const body = ['hello block']
 
@@ -227,4 +227,5 @@ module.exports = {
     getVersion,
     mineBlock,
     createHash,
+    replaceBlock,
 }
