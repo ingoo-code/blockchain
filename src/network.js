@@ -12,7 +12,13 @@ const MessageAction = {
     QUERY_ALL:1,
     RESPONSE_BLOCK:2,
 }
-
+/*
+    open
+    connection
+    error
+    close
+    message*
+ */
 //reducer 만들겁니다. 
 function initMessageHandler(ws){
     ws.on("message",data => {
@@ -114,7 +120,7 @@ function closeConnection(ws){
 
 // 최초의 접속 
 function wsInit(){
-    const server = new WebSocket.Server({ port:wsPORT})
+    const server = new WebSocket.Server({ port:wsPORT}) //server 
     server.on("connection",(ws)=>{
         console.log(ws)
         init(ws) // 소켓키값
@@ -131,7 +137,7 @@ function broadcast(message){
 function connectionToPeers(newPeers){ // 배열로 들어갈꺼다. ["ws://localhost:7001","ws://localhost:7002"]
     newPeers.forEach(peer=>{ // 주소값 ws://localhost:7001
         // 
-        const ws = new WebSocket(peer)
+        const ws = new WebSocket(peer) //client
         ws.on("open",()=>{ init(ws) })
         ws.on("error",()=>{  console.log("connection failed") })
     })
